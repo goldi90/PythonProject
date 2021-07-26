@@ -35,16 +35,33 @@ def UpdateContactNumber():
     UpdateContacts.execute(sql,val)
     mydb.commit()
     mydb.close()
+def UpdateContactName():
+    Where=input("Enter the Number of contact You want to update : ")
+    Value=input("value that You want to replace : ")
+    UpdateContacts=mydb.cursor()
+    sql = "update contactno.contacts set NameOfPerson=(%s) where ContactNO=(%s)"
+    val = ("{}".format(Value), "{}".format(Where))
+    UpdateContacts.execute(sql,val)
+    mydb.commit()
+    mydb.close()
+def DeleteRecord():
+      Name= input("Enter The Name of Person YOu Want To delete")
+      DeleteContacts=mydb.cursor()
+      sql="delete from contactno.contacts  where NameOfPerson=(%s)"
+      val=("{}".format(Name))
+      DeleteContacts.execute(sql,val)
+      mydb.commit()
+      mydb.close()
 
 
-
-
-Action=input('\033[94m'+"Press C for Creating contact:\nPress A for get all Contact :\nPress UN To update Number   :  "+css.color.END)
+Action=input('\033[94m'+'\033[1m'+"Press C for Creating contact:\nPress A for get all Contact :\nPress UN To update Number   :  \nPress UP To update Name Of person   : "+css.color.END +'\033[91m'+"'\033[1m'"+"\nPress D To delete Contact   :  "+css.color.END )
 if Action=="c" or Action=="C":
     CreateContact()
 if Action=="a" or Action=="A":
     ShowAll()
 if Action=="un" or Action=="UN":
     UpdateContactNumber()
-    
-
+if Action =="UP" or Action=="up":
+     UpdateContactName()   
+if Action =="d" or Action=="D":
+    DeleteRecord()
