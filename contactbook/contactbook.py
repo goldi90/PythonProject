@@ -44,6 +44,7 @@ def UpdateContactName():
     UpdateContacts.execute(sql,val)
     mydb.commit()
     mydb.close()
+    
 def DeleteRecord():
       Name= input("Enter The Name of Person YOu Want To delete")
       DeleteContacts=mydb.cursor()
