@@ -9,22 +9,42 @@ mydb = connector.connect(
 
 # print(mydb)
 def ShowAll():
-    mycursor = mydb.cursor()
-    mycursor.execute("select * from contactno.contacts")
-    for (NameOfPerson,ContactNO) in mycursor:
+    ShowContacts = mydb.cursor()
+    ShowContacts.execute("select * from contactno.contacts")
+    for (NameOfPerson,ContactNO) in ShowContacts:
         print(NameOfPerson,ContactNO)
-    # mydb.close()
+    mydb.close()
 
 def CreateContact():
     print(css.color.BOLD+"Note: You are creating Contact"+ css.color.END)
     personName= input()
     Number=input()
-    mycursor = mydb.cursor()
+    CreateContacts = mydb.cursor()
     sql = "INSERT INTO contactno.contacts(NameOfPerson, ContactNo) VALUES (%s, %s)"
     val = ("{}".format(personName), "{}".format(Number))
-    mycursor.execute(sql, val)
+    CreateContacts.execute(sql, val)
     mydb.commit()
-    print(mycursor.rowcount, "record inserted.")
+    print(CreateContacts.rowcount, "record inserted.")
     mydb.close()
-ShowAll()
-CreateContact()
+def UpdateContactNumber():
+    Where=input("Enter the Name of contact You want to update : ")
+    Value=input("value that You want to replace : ")
+    UpdateContacts=mydb.cursor()
+    sql = "update contactno.contacts set ContactNo=(%s) where NameOfPerson=(%s)"
+    val = ("{}".format(Value), "{}".format(Where))
+    UpdateContacts.execute(sql,val)
+    mydb.commit()
+    mydb.close()
+
+
+
+
+Action=input('\033[94m'+"Press C for Creating contact:\nPress A for get all Contact :\nPress UN To update Number   :  "+css.color.END)
+if Action=="c" or Action=="C":
+    CreateContact()
+if Action=="a" or Action=="A":
+    ShowAll()
+if Action=="un" or Action=="UN":
+    UpdateContactNumber()
+    
+
