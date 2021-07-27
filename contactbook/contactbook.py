@@ -45,22 +45,24 @@ def UpdateContactName():
     mydb.commit()
     mydb.close()
     
-def DeleteRecord():
-      Name= input("Enter The Name of Person YOu Want To delete")
-      DeleteContacts=mydb.cursor()
-      sql="delete from contactno.contacts  where NameOfPerson=(%s)"
-      val=("{}".format(Name))
-      DeleteContacts.execute(sql,val)
-      mydb.commit()
-      mydb.close()
 def DeleteRecordByNumber():
       Name= input("Enter The Number of Person YOu Want To delete")
       DeleteContacts=mydb.cursor()
-      sql="delete from contactno.contacts  where ContactNO=(%s)"
+      sql="delete from contactno.contacts  where ContactNO=(%s);"
       val=("{}".format(Name))
       DeleteContacts.execute(sql,val)
       mydb.commit()
       mydb.close()
+
+def DeleteRecord():
+      Name= input("Enter The Name of Person YOu Want To delete")
+      DeleteContacts=mydb.cursor()
+      sql="delete from contactno.contacts where NameOfPerson=(%s)"
+      val=("{}".format(Name))
+      DeleteContacts.execute(sql,val)
+      mydb.commit()
+      mydb.close()
+
 
 Action=input('\033[94m'+'\033[1m'+"Press C for Creating contact:\nPress A for get all Contact :\nPress UN To update Number   :  \nPress UP To update Name Of person   : "+css.color.END +'\033[91m'+'\033[1m'+"\nPress D To delete Contact   :  \nPress DN To delete Contact By Number   :  "+css.color.END )
 if Action=="c" or Action=="C":
