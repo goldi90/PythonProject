@@ -1,0 +1,7 @@
+Press C for Creating contact: Done
+Press A for get all Contact : Done
+Press UN To update Number   :Done
+Press UP To update Name Of person   : Done
+Press D To delete Contact   : Error
+Decribe : mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%s)'
+Press DN To delete Contact By Number   :
