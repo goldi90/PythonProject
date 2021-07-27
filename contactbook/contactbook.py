@@ -49,7 +49,7 @@ def DeleteRecordByNumber():
       Name= input("Enter The Number of Person YOu Want To delete")
       DeleteContacts=mydb.cursor()
       sql="delete from contactno.contacts  where ContactNO=(%s)"
-      val=("{}".format(Name))
+      val=(Name,)
       DeleteContacts.execute(sql,val)
       mydb.commit()
       mydb.close()
@@ -58,7 +58,7 @@ def DeleteRecord():
       Name= input("Enter The Name of Person YOu Want To delete")
       DeleteContacts=mydb.cursor()
       sql="delete from contactno.contacts where NameOfPerson=(%s)"
-      val=("{}".format(Name))
+      val=(Name,)
       DeleteContacts.execute(sql,val)
       mydb.commit()
       mydb.close()
