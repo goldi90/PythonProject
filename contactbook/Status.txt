@@ -4,4 +4,11 @@ Press UN To update Number   :Done
 Press UP To update Name Of person   : Done
 Press D To delete Contact   : Done
 Press DN To delete Contact By Number   : Done
+ -------------------------- After Seperating Functions
+ Press C for Creating contact: Done
+Press A for get all Contact : Done
+Press UN To update Number   :Done
+Press UP To update Name Of person   : Done
+Press D To delete Contact   :Done 
+Press DN To delete Contact By Number   : Done
 
