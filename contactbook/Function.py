@@ -13,7 +13,7 @@ def CreateContact():
     Number=input("Enter The  number of Person : ")
     CreateContacts = connections.mydb.cursor()
     sql = "INSERT INTO contactno.contacts(NameOfPerson, ContactNo) VALUES (%s, %s)"
-    val = ("{}".format(personName), "{}".format(Number))
+    val = (personName, Number)
     CreateContacts.execute(sql, val)
     connections.mydb.commit()
     print(CreateContacts.rowcount, "record inserted.")
@@ -23,7 +23,7 @@ def UpdateContactNumber():
     Value=input("value that You want to replace : ")
     UpdateContacts=connections.mydb.cursor()
     sql = "update contactno.contacts set ContactNo=(%s) where NameOfPerson=(%s)"
-    val = ("{}".format(Value), "{}".format(Where))
+    val = (Value, Where)
     UpdateContacts.execute(sql,val)
     connections.mydb.commit()
     connections.mydb.close()
@@ -32,7 +32,7 @@ def UpdateContactName():
     Value=input("value that You want to replace : ")
     UpdateContacts=connections.mydb.cursor()
     sql = "update contactno.contacts set NameOfPerson=(%s) where ContactNO=(%s)"
-    val = ("{}".format(Value), "{}".format(Where))
+    val = (Value, Where)
     UpdateContacts.execute(sql,val)
     connections.mydb.commit()
     connections.mydb.close()
